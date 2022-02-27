@@ -1,6 +1,6 @@
 FROM debian:buster-slim
 RUN apt-get update
-RUN apt install git build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libsqlite3-dev libreadline-dev libffi-dev wget libbz2-dev -y
+RUN apt-get install git build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libsqlite3-dev libreadline-dev libffi-dev wget libbz2-dev -y
 WORKDIR /root
 SHELL [ "/bin/bash", "-l", "-c" ]
 
