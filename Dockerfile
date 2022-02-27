@@ -1,6 +1,6 @@
 FROM debian:buster-slim
 RUN apt-get update
-RUN apt-get install git build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libsqlite3-dev libreadline-dev libffi-dev wget libbz2-dev -y
+RUN apt-get install git build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libsqlite3-dev libreadline-dev libffi-dev wget libbz2-dev nginx -y
 WORKDIR /root
 SHELL [ "/bin/bash", "-l", "-c" ]
 
@@ -36,5 +36,8 @@ ADD . /root
 # -- Installations --------------------------------
 RUN pip install -r requirements.txt; \
     bundle install
+
+## -- nginx ---------------------------------------
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 
 CMD ["/bin/bash", "-l", "/root/main.sh"]
