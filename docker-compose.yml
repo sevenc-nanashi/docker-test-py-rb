@@ -1,0 +1,12 @@
+version: '3'
+services:
+  sinatra:
+    build: ruby
+    ports:
+      - "40010:4567"
+    environment:
+      - PYTHON_PORT=5000
+  flask:
+    build: python
+    environment:
+      - PORT=5000
